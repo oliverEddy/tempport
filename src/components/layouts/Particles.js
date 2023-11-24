@@ -1,111 +1,46 @@
-import React from 'react'
-import Particles from 'react-particles-js'
-import { background } from '../../profile'
+import React, { useState } from 'react';
+
+const imageUrls = [
+  'https://i.imgur.com/FRQCRvC.png',
+  'https://i.imgur.com/aI01Yo4.png',
+  'https://i.imgur.com/fFFhbzn.png',
+  'https://i.imgur.com/dopMHAn.png',
+  'https://i.imgur.com/xYd8QuO.png',
+  'https://i.imgur.com/VG8ZlrH.png',
+  'https://i.imgur.com/jKA4Jiz.png',
+  'https://i.imgur.com/IHO2QO2.png',
+  'https://i.imgur.com/DBHONQC.png',
+  'https://i.imgur.com/9NWnVvH.png',
+  'https://i.imgur.com/JeZ1rj8.png',
+  'https://i.imgur.com/FukkUQj.png',
+];
 
 const ParticlesBackground = () => {
-    return (
-        <div className="particle">
-            { background.type === 'Snow' && <Particles
-            height="100vh"
-            width="100%"
-                params={{
-                "particles": {
-                    "number": {
-                        "value": 75,
-                        "density": {
-                            "enable": false
-                        }
-                    },
-                    "color": {
-                        "value": "#000000"
-                    },
-                    "size": {
-                        "value": 10,
-                        "random": true
-                    },
-                    "move": {
-                        "direction": "bottom",
-                        "out_mode": "out"
-                    },
-                    "line_linked": {
-                        "enable": false
-                    }
-                },
-                "interactivity": {
-                    "events": {
-                        "onclick": {
-                            "enable": true,
-                            "mode": "remove"
-                        }
-                    },
-                    "modes": {
-                        "remove": {
-                            "particles_nb": 5
-                        }
-                    }
-                }
-            }} />}
-            { background.type === 'Particle' && <Particles
-            height= "100vh"
-            width= "100vw"
-            params={{
-            "particles": {
-                "collisions": {
-                    "enable": true
-                },
-                "number": {
-                    "value": 100,
-                    "density": {
-                        "enable": false
-                    }
-                },
-                "color": "#000",
-                "size": {
-                    "value": 5,
-                    "random": true,
-                    "anim": {
-                        "speed": 4,
-                        "size_min": 0.3
-                    }
-                },
-                "line_linked": {
-                    "enable": true,
-                    "color": "#000"
-                },
-                "move": {
-                    "random": true,
-                    "speed": 1,
-                    "direction": "bottom",
-                    "out_mode": "out"
-                }
-            },
-            "interactivity": {
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "bubble"
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push"
-                    }
-                },
-                "modes": {
-                    "bubble": {
-                        "distance": 250,
-                        "duration": 2,
-                        "size": 6,
-                        "opacity": 0.4
-                    },
-                    "push": {
-                        "particles_nb": 5
-                    }
-                },
-                "retina_detect": true
-            }
-        }} />}
-        </div>
-    )
-}
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-export default ParticlesBackground
+  const handleNextImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imageUrls.length);
+  };
+
+  const handlePrevImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + imageUrls.length) % imageUrls.length);
+  };
+
+  return (
+    <div className="particle">
+      <div className="image-container" style={{ width: '100vw', height: '100vh', overflow: 'hidden' }}>
+        <img
+          src={imageUrls[currentImageIndex]}
+          alt={`background-${currentImageIndex}`}
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+        />
+      </div>
+      <div className="arrow-buttons">
+        <button onClick={handlePrevImage}>{'<'}</button>
+        <button onClick={handleNextImage}>{'>'}</button>
+      </div>
+    </div>
+  );
+};
+
+export default ParticlesBackground;

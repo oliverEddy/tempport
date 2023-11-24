@@ -28,7 +28,7 @@ button:focus {
   font-family: Montserrat, sans-serif;
 }
 .Header h1 {
-  color: #000;
+  color: #fff;
   text-align: center;
   font-size: 5.5rem;
   position: absolute;
@@ -206,7 +206,7 @@ button:focus {
   box-sizing: border-box;
   width: 30%;
   padding-bottom: 5px;
-  border-bottom: solid 2px var(--primary-color);
+ 
   margin-bottom: 15px;
 }
 .pp-text {
@@ -449,7 +449,7 @@ input:checked + .slider:before {
     blinkTextCursor 0.5s steps(27) infinite normal;
 }
 .parallax {
-  background-image: url(https://images.pexels.com/photos/691668/pexels-photo-691668.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+  background-image: url(https://images.pexels.com/photos/19156804/pexels-photo-19156804/free-photo-of-scenic-sunset.jpeg);
 }
 @keyframes typewriter {
   from {

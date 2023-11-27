@@ -158,7 +158,7 @@ button:focus {
 }
 .skill__square i:hover,
 .skill__square svg:hover {
-  color: #ff4753 !important;
+  color: #95a9de !important;
 }
 .third {
   width: 75%;
@@ -237,8 +237,9 @@ button:focus {
   box-sizing: border-box;
   display: block;
   margin: 3rem 3rem 0 3rem;
-  background-color:  rgba(0, 0, 0, 0.35);
+  background-color:  rgba(0, 0, 0, 0.4);
   max-height: 80vh;
+  border-radius: 1.5rem;
   
 
 }
